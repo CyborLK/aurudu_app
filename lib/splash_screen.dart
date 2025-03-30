@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Navigate to Dashboard after 3 seconds
-    Timer(const Duration(seconds: 30), () {
+    Timer(const Duration(seconds: 10), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const DashboardScreen()),
       );

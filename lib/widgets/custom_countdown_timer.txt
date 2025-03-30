@@ -1,0 +1,176 @@
+import 'package:flutter/material.dart';
+import 'dart:async';
+
+class CustomCountdownTimer extends StatefulWidget {
+  // Parameters for customization by the developer
+  final DateTime endDateTime; // End date and time for the countdown
+  final Color textColor;
+  final List<String> labels; // Labels for days, hours, minutes, seconds
+  final String? timerFontFamily; // Font family for the timer values
+  final String? labelFontFamily; // Font family for the labels
+  final String? title; // Title to display above the timer
+  final String? titleFontFamily; // Font family for the title
+
+  const CustomCountdownTimer({
+    Key? key,
+    required this.endDateTime,
+    this.textColor = Colors.black,
+    this.labels = const ['Days', 'Hours', 'Minutes', 'Seconds'],
+    this.timerFontFamily, // Optional font family for timer
+    this.labelFontFamily, // Optional font family for labels
+    this.title, // Optional title
+    this.titleFontFamily, // Optional font family for title
+  }) : super(key: key);
+
+  @override
+  _CustomCountdownTimerState createState() => _CustomCountdownTimerState();
+}
+
+class _CustomCountdownTimerState extends State<CustomCountdownTimer> {
+  late Duration _remainingTime;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    // Calculate the initial remaining time
+    _updateRemainingTime();
+    // Start the timer to update every second
+    _startTimer();
+  }
+
+  void _updateRemainingTime() {
+    // Get the current date and time
+    final now = DateTime.now();
+    // Calculate the difference between the end date/time and now
+    _remainingTime = widget.endDateTime.difference(now);
+    // If the end date/time has already passed, set the remaining time to zero
+    if (_remainingTime.isNegative) {
+      _remainingTime = Duration.zero;
+    }
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        _updateRemainingTime();
+        // Stop the timer if the countdown reaches zero
+        if (_remainingTime == Duration.zero) {
+          _timer.cancel();
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel(); // Cancel the timer when the widget is disposed
+    super.dispose();
+  }
+
+  // Format numbers to always show two digits (e.g., 09 instead of 9)
+  String _formatNumber(int number) {
+    return number.toString().padLeft(2, '0');
+  }
+
+  // Calculate days, hours, minutes, and seconds from the remaining duration
+  int get _days => _remainingTime.inDays;
+  int get _hours => _remainingTime.inHours % 24;
+  int get _minutes => _remainingTime.inMinutes % 60;
+  int get _seconds => _remainingTime.inSeconds % 60;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.transparent, // Transparent background
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Display the title if provided
+          if (widget.title != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0), // Space below the title
+              child: Text(
+                widget.title!,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: widget.textColor,
+                  fontFamily: widget.titleFontFamily ?? widget.labelFontFamily, // Use titleFontFamily if provided, otherwise fall back to labelFontFamily
+                ),
+              ),
+            ),
+          // Row for the timer and labels
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Days
+              _buildTimeUnitWithLabel(_formatNumber(_days), widget.labels[0]),
+              const SizedBox(width: 12), // Increased space before the colon
+              _buildColon(),
+              const SizedBox(width: 12), // Increased space after the colon
+              // Hours
+              _buildTimeUnitWithLabel(_formatNumber(_hours), widget.labels[1]),
+              const SizedBox(width: 12),
+              _buildColon(),
+              const SizedBox(width: 12),
+              // Minutes
+              _buildTimeUnitWithLabel(_formatNumber(_minutes), widget.labels[2]),
+              const SizedBox(width: 12),
+              _buildColon(),
+              const SizedBox(width: 12),
+              // Seconds
+              _buildTimeUnitWithLabel(_formatNumber(_seconds), widget.labels[3]),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Helper method to build each time unit with its label in a Column
+  Widget _buildTimeUnitWithLabel(String value, String label) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          value,
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: widget.textColor, // Customizable text color
+            fontFamily: widget.timerFontFamily, // Font for timer values
+          ),
+        ),
+        const SizedBox(height: 4), // Space between timer value and label
+        Text(
+          label,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 14,
+            color: widget.textColor, // Customizable text color for labels
+            fontFamily: widget.labelFontFamily, // Font for labels
+          ),
+        ),
+      ],
+    );
+  }
+
+  // Helper method to build the colon separator
+  Widget _buildColon() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          ':',
+          style: TextStyle(
+            fontSize: 24, // Match the timer font size
+            fontWeight: FontWeight.bold, // Match the timer font weight
+            color: widget.textColor, // Match the timer text color
+            fontFamily: widget.timerFontFamily, // Match the timer font family
+          ),
+        ),
+        const SizedBox(height: 18), // Space to align with the label below
+      ],
+    );
+  }
+}
