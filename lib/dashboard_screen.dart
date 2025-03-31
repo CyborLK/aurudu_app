@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'package:audioplayers/audioplayers.dart';
 import '../widgets/custom_app_bar.dart';
-import 'screens/timer_details_screen.dart'; // Import the new screens
-import 'screens/couple_details_screen.dart';
-import 'screens/compass_details_screen.dart';
+import '../widgets/timer_display.dart';
+import '../screens/timer_details_screen.dart';
+import '../screens/couple_details_screen.dart';
+import '../screens/compass_details_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -14,50 +13,20 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  late Timer _timer;
   Duration _timeLeft = const Duration(
     days: 27,
     hours: 14,
     minutes: 9,
     seconds: 59,
   );
-  bool isMuted = false;
-
-  final AudioPlayer _audioPlayer = AudioPlayer();
 
   @override
   void initState() {
     super.initState();
-
-    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-      setState(() {
-        _timeLeft -= const Duration(seconds: 1);
-      });
-    });
-
-    _playMusic();
-  }
-
-  Future<void> _playMusic() async {
-    await _audioPlayer.stop();
-    await _audioPlayer.setSource(AssetSource('audio/new_year_music.mp3'));
-    await _audioPlayer.setReleaseMode(ReleaseMode.loop);
-    await _audioPlayer.setVolume(1); // ensure volume starts unmuted
-    await _audioPlayer.setPlaybackRate(1.0);
-    await _audioPlayer.resume();
-  }
-
-  void _toggleMute() {
-    setState(() {
-      isMuted = !isMuted;
-      _audioPlayer.setVolume(isMuted ? 0 : 1);
-    });
   }
 
   @override
   void dispose() {
-    _timer.cancel();
-    _audioPlayer.dispose();
     super.dispose();
   }
 
@@ -65,11 +34,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final days = formatDigits(_timeLeft.inDays);
-    final hours = formatDigits(_timeLeft.inHours % 24);
-    final minutes = formatDigits(_timeLeft.inMinutes % 60);
-    final seconds = formatDigits(_timeLeft.inSeconds % 60);
-
     return Scaffold(
       extendBodyBehindAppBar: true,
       body: Stack(
@@ -87,7 +51,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
             child: Column(
               children: [
                 // Fixed AppBar
-                CustomAppBar(isMuted: isMuted, onToggleMute: _toggleMute),
+                const CustomAppBar(
+                  title: 'kele;a iSÜgqj 2025',
+                ),
 
                 // Scrollable content
                 Expanded(
@@ -102,13 +68,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             style: TextStyle(
                               fontSize: 26,
                               fontFamily: 'apex008-FreeTypo',
+                              color:Color(0xFFBB0404), 
                             ),
                           ),
                         ),
 
                         const SizedBox(height: 10),
 
-                        // First Card (Timer Card) - Clickable
+                        // First Card (Timer Card) - Using TimerDisplay
                         InkWell(
                           onTap: () {
                             Navigator.push(
@@ -127,27 +94,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontFamily: 'apex008-FreeTypo',
-                                    color: Color(0xFFBB0404),
+                                    color:Color(0xFFBB0404), 
                                   ),
                                 ),
                                 const SizedBox(height: 10),
-                                Text(
-                                  '$days : $hours : $minutes : $seconds',
-                                  style: const TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFFBB0404),
-                                    fontFamily: 'Gafata-Regular',
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                const Text(
-                                  'Èk   meh   úkdä   ;;amr',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontFamily: 'apex008-FreeTypo',
-                                    color: Color(0xFFBB0404),
-                                  ),
+                                TimerDisplay(
+                                  initialTimeLeft: _timeLeft,
+                                  formatDigits: formatDigits,
                                 ),
                               ],
                             ),
@@ -177,7 +130,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   'kele;a iSÜgqj 2025',
                                   style: TextStyle(
                                     fontSize: 22,
-                                    color: Color(0xFFBB0404),
+                                    color:Color(0xFFBB0404), 
                                     fontFamily: 'TharuDigitalNikini',
                                   ),
                                 ),
@@ -211,7 +164,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     'ÈYdj n,d .kak\'',
                                     style: const TextStyle(
                                       fontSize: 22,
-                                      color: Color(0xFFBB0404),
+                                      color:Color(0xFFBB0404), 
                                       fontFamily: 'TharuDigitalNikini',
                                     ),
                                     overflow: TextOverflow.ellipsis,
@@ -228,7 +181,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           'iqn w¨;a wjqreoaola fõjd æ',
                           style: TextStyle(
                             fontSize: 24,
-                            color: Color(0xFFBB0404),
+                            color:Color(0xFFBB0404), 
                             fontFamily: 'TharuDigitalNikini',
                           ),
                         ),
@@ -244,10 +197,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             const Text(
                               'Developed by:\nNadun Daluwatta',
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color:Color(0xFFBB0404), 
+                              ),
                             ),
-                            const Text('nadundaluwatta26@gmail.com'),
-                            const Text('www.nadundaluwatta.me'),
+                            const Text(
+                              'nadundaluwatta26@gmail.com.',
+                              style: TextStyle(
+                                color:Color(0xFFBB0404), 
+                              ),
+                            ),
+                            const Text(
+                              'www.nadundaluwatta.me',
+                              style: TextStyle(
+                                color:Color(0xFFBB0404), 
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -269,7 +235,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       decoration: BoxDecoration(
         color: const Color(0xFFFAE3C3),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.red, width: 2),
+        border: Border.all(color: const Color(0xFFBB0404), width: 2),
         boxShadow: const [
           BoxShadow(color: Colors.black26, blurRadius: 5, offset: Offset(2, 4)),
         ],

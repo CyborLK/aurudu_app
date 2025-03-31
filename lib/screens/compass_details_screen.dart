@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/custom_app_bar.dart';
 
 class CompassDetailsScreen extends StatelessWidget {
   const CompassDetailsScreen({super.key});
@@ -6,9 +7,8 @@ class CompassDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Compass Details'),
-        backgroundColor: const Color(0xFFBB0404),
+      appBar: const CustomAppBar(
+        title: 'Compass Details',
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -23,7 +23,7 @@ class CompassDetailsScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 24,
-              color: Colors.white,
+              color: Colors.white, // Already white
               fontFamily: 'TharuDigitalNikini',
             ),
           ),

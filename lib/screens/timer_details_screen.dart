@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/custom_app_bar.dart';
 
 class TimerDetailsScreen extends StatelessWidget {
   const TimerDetailsScreen({super.key});
@@ -6,9 +7,8 @@ class TimerDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Timer Details'),
-        backgroundColor: const Color(0xFFBB0404), // Match the theme color
+      appBar: const CustomAppBar(
+        title: 'Timer Details',
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -23,7 +23,7 @@ class TimerDetailsScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 24,
-              color: Colors.white,
+              color: Colors.white, // Already white
               fontFamily: 'TharuDigitalNikini',
             ),
           ),
