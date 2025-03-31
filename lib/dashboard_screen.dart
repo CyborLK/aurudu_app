@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import '../widgets/custom_app_bar.dart';
+import 'screens/timer_details_screen.dart'; // Import the new screens
+import 'screens/couple_details_screen.dart';
+import 'screens/compass_details_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -105,81 +108,117 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                         const SizedBox(height: 10),
 
-                        _buildCard(
-                          Column(
-                            children: [
-                              const Text(
-                                'mqKH ld,h - wmrNd. 08\'57 g',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'apex008-FreeTypo',
-                                  color: Color(0xFFBB0404),
+                        // First Card (Timer Card) - Clickable
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const TimerDetailsScreen(),
+                              ),
+                            );
+                          },
+                          borderRadius: BorderRadius.circular(20),
+                          child: _buildCard(
+                            Column(
+                              children: [
+                                const Text(
+                                  'mqKH ld,h - wmrNd. 08\'57 g',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'apex008-FreeTypo',
+                                    color: Color(0xFFBB0404),
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 10),
-                              Text(
-                                '$days : $hours : $minutes : $seconds',
-                                style: const TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFFBB0404),
-                                  fontFamily: 'Gafata-Regular',
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              const Text(
-                                'Èk   meh   úkdä   ;;amr',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: 'apex008-FreeTypo',
-                                  color: Color(0xFFBB0404),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-
-                        _buildCard(
-                          Row(
-                            children: [
-                              Image.asset(
-                                'assets/images/couple.png',
-                                height: 80,
-                              ),
-                              const SizedBox(width: 10),
-                              const Text(
-                                'kele;a iSÜgqj 2025',
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  color: Color(0xFFBB0404),
-                                  fontFamily: 'TharuDigitalNikini',
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-
-                        _buildCard(
-                          Row(
-                            children: [
-                              Image.asset(
-                                'assets/images/compass.png', // Ensure this path matches your file location
-                                width: 40,
-                                height: 40,
-                              ),
-                              const SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  'ÈYdj n,d .kak\'',
+                                const SizedBox(height: 10),
+                                Text(
+                                  '$days : $hours : $minutes : $seconds',
                                   style: const TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFFBB0404),
+                                    fontFamily: 'Gafata-Regular',
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                const Text(
+                                  'Èk   meh   úkdä   ;;amr',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: 'apex008-FreeTypo',
+                                    color: Color(0xFFBB0404),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        // Second Card (Couple Card) - Clickable
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CoupleDetailsScreen(),
+                              ),
+                            );
+                          },
+                          borderRadius: BorderRadius.circular(20),
+                          child: _buildCard(
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'assets/images/couple.png',
+                                  height: 80,
+                                ),
+                                const SizedBox(width: 10),
+                                const Text(
+                                  'kele;a iSÜgqj 2025',
+                                  style: TextStyle(
                                     fontSize: 22,
                                     color: Color(0xFFBB0404),
                                     fontFamily: 'TharuDigitalNikini',
                                   ),
-                                  overflow: TextOverflow.ellipsis,
                                 ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        // Third Card (Compass Card) - Clickable
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CompassDetailsScreen(),
                               ),
-                            ],
+                            );
+                          },
+                          borderRadius: BorderRadius.circular(20),
+                          child: _buildCard(
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'assets/images/compass.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                                const SizedBox(width: 10),
+                                Expanded(
+                                  child: Text(
+                                    'ÈYdj n,d .kak\'',
+                                    style: const TextStyle(
+                                      fontSize: 22,
+                                      color: Color(0xFFBB0404),
+                                      fontFamily: 'TharuDigitalNikini',
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
 
