@@ -62,7 +62,8 @@ flutter:
   assets:
     - assets/images/background.jpg
     - assets/images/couple.png
-    - assets/images/dev_logo.png
+    - assets/images/compass.png
+    - assets/images/nd_logo.png
 
     - assets/audio/new_year_music.mp3
   fonts:

@@ -31,11 +31,11 @@ class CustomAppBar extends StatelessWidget {
         children: [
           const SizedBox(width: 24), // Placeholder for symmetry
           Text(
-            'නව වසර 2025',
+            'kele;a iSÜgqj 2025',
             style: TextStyle(
               fontFamily: 'TharuDigitalNikini',
               fontSize: 24,
-              color: Colors.orange[800],
+              color: const Color(0xFFBB0404),
               fontWeight: FontWeight.bold,
               shadows: const [
                 Shadow(color: Colors.black12, offset: Offset(1, 1)),

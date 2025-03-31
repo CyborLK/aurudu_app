@@ -12,7 +12,12 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   late Timer _timer;
-  Duration _timeLeft = const Duration(days: 27, hours: 14, minutes: 9, seconds: 59);
+  Duration _timeLeft = const Duration(
+    days: 27,
+    hours: 14,
+    minutes: 9,
+    seconds: 59,
+  );
   bool isMuted = false;
 
   final AudioPlayer _audioPlayer = AudioPlayer();
@@ -31,9 +36,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   Future<void> _playMusic() async {
+    await _audioPlayer.stop();
     await _audioPlayer.setSource(AssetSource('audio/new_year_music.mp3'));
     await _audioPlayer.setReleaseMode(ReleaseMode.loop);
     await _audioPlayer.setVolume(1); // ensure volume starts unmuted
+    await _audioPlayer.setPlaybackRate(1.0);
     await _audioPlayer.resume();
   }
 
@@ -77,10 +84,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             child: Column(
               children: [
                 // Fixed AppBar
-                CustomAppBar(
-                  isMuted: isMuted,
-                  onToggleMute: _toggleMute,
-                ),
+                CustomAppBar(isMuted: isMuted, onToggleMute: _toggleMute),
 
                 // Scrollable content
                 Expanded(
@@ -91,10 +95,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         const Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'මිලිය නාකන',
+                            'ó,Õ kel;',
                             style: TextStyle(
                               fontSize: 26,
-                              fontFamily: 'TharuDigitalNikini',
+                              fontFamily: 'apex008-FreeTypo',
                             ),
                           ),
                         ),
@@ -105,11 +109,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           Column(
                             children: [
                               const Text(
-                                'දුන්නා කාලය - අවසන් වෙයි:',
+                                'mqKH ld,h - wmrNd. 08\'57 g',
                                 style: TextStyle(
                                   fontSize: 20,
-                                  fontFamily: 'TharuDigitalNikini',
-                                  color: Colors.red,
+                                  fontFamily: 'apex008-FreeTypo',
+                                  color: Color(0xFFBB0404),
                                 ),
                               ),
                               const SizedBox(height: 10),
@@ -118,17 +122,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 style: const TextStyle(
                                   fontSize: 30,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontFamily: 'TharuDigitalNikini',
+                                  color: Color(0xFFBB0404),
+                                  fontFamily: 'Gafata-Regular',
                                 ),
                               ),
                               const SizedBox(height: 10),
                               const Text(
-                                'දින   පැය   විනාඩි   තත්පර',
+                                'Èk   meh   úkdä   ;;amr',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  fontFamily: 'TharuDigitalNikini',
-                                  color: Colors.white,
+                                  fontFamily: 'apex008-FreeTypo',
+                                  color: Color(0xFFBB0404),
                                 ),
                               ),
                             ],
@@ -144,10 +148,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ),
                               const SizedBox(width: 10),
                               const Text(
-                                'නව වසර 2025',
+                                'kele;a iSÜgqj 2025',
                                 style: TextStyle(
                                   fontSize: 22,
-                                  color: Colors.red,
+                                  color: Color(0xFFBB0404),
                                   fontFamily: 'TharuDigitalNikini',
                                 ),
                               ),
@@ -157,15 +161,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                         _buildCard(
                           Row(
-                            children: const [
-                              Icon(Icons.explore, color: Colors.white, size: 40),
-                              SizedBox(width: 10),
-                              Text(
-                                'දිශාව බලන්න.',
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  color: Colors.white,
-                                  fontFamily: 'TharuDigitalNikini',
+                            children: [
+                              Image.asset(
+                                'assets/images/compass.png', // Ensure this path matches your file location
+                                width: 40,
+                                height: 40,
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  'ÈYdj n,d .kak\'',
+                                  style: const TextStyle(
+                                    fontSize: 22,
+                                    color: Color(0xFFBB0404),
+                                    fontFamily: 'TharuDigitalNikini',
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ],
@@ -175,10 +186,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         const SizedBox(height: 20),
 
                         const Text(
-                          'ඔබට සුබ නව වසරක් වේවා !',
+                          'iqn w¨;a wjqreoaola fõjd æ',
                           style: TextStyle(
                             fontSize: 24,
-                            color: Colors.red,
+                            color: Color(0xFFBB0404),
                             fontFamily: 'TharuDigitalNikini',
                           ),
                         ),
@@ -187,7 +198,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                         Column(
                           children: [
-                            Image.asset('assets/images/dev_logo.png', height: 60),
+                            Image.asset(
+                              'assets/images/nd_logo.png',
+                              height: 60,
+                            ),
                             const Text(
                               'Developed by:\nNadun Daluwatta',
                               textAlign: TextAlign.center,
@@ -214,15 +228,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       margin: const EdgeInsets.symmetric(vertical: 10),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.amber[700],
+        color: const Color(0xFFFAE3C3),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Colors.red, width: 2),
         boxShadow: const [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 5,
-            offset: Offset(2, 4),
-          ),
+          BoxShadow(color: Colors.black26, blurRadius: 5, offset: Offset(2, 4)),
         ],
       ),
       child: child,
