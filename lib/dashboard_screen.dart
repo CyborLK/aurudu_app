@@ -13,22 +13,12 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  Duration _timeLeft = const Duration(
+  final Duration _timeLeft = const Duration(
     days: 27,
     hours: 14,
     minutes: 9,
     seconds: 59,
   );
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   String formatDigits(int n) => n.toString().padLeft(2, '0');
 
@@ -38,137 +28,139 @@ class _DashboardScreenState extends State<DashboardScreen> {
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
-          // Full background
           Positioned.fill(
             child: Image.asset(
               'assets/images/background.jpg',
               fit: BoxFit.cover,
             ),
           ),
-
-          // Content over background
           SafeArea(
             child: Column(
               children: [
-                // Fixed AppBar
-                const CustomAppBar(
-                  title: 'kele;a iSÜgqj 2025',
-                ),
-
-                // Scrollable content
+                const CustomAppBar(title: 'kele;a iSÜgqj 2025'),
                 Expanded(
                   child: SingleChildScrollView(
                     padding: const EdgeInsets.all(12),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Align(
-                          alignment: Alignment.centerLeft,
+                        const Center(
                           child: Text(
                             'ó,Õ kel;',
                             style: TextStyle(
                               fontSize: 26,
-                              fontFamily: 'apex008-FreeTypo',
-                              color:Color(0xFFBB0404), 
+                              fontFamily: 'TharuDigitalNikini',
+                              color: Color(0xFFBB0404),
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
+                        const SizedBox(height: 5),
 
-                        const SizedBox(height: 10),
-
-                        // First Card (Timer Card) - Using TimerDisplay
+                        // Timer Card
                         InkWell(
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const TimerDetailsScreen(),
+                                builder:
+                                    (context) => const TimerDetailsScreen(),
                               ),
                             );
                           },
                           borderRadius: BorderRadius.circular(20),
                           child: _buildCard(
-                            Column(
-                              children: [
-                                const Text(
-                                  'mqKH ld,h - wmrNd. 08\'57 g',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontFamily: 'apex008-FreeTypo',
-                                    color:Color(0xFFBB0404), 
+                            SizedBox(
+                              width: double.infinity,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    'mqKH ld,h - wmrNd. 08\'57 g',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontFamily: 'TharuDigitalNikini',
+                                      color: Color(0xFFBB0404),
+                                    ),
+                                    textAlign: TextAlign.center,
                                   ),
-                                ),
-                                const SizedBox(height: 10),
-                                TimerDisplay(
-                                  initialTimeLeft: _timeLeft,
-                                  formatDigits: formatDigits,
-                                ),
-                              ],
+                                  const SizedBox(height: 12),
+                                  TimerDisplay(
+                                    initialTimeLeft: _timeLeft,
+                                    formatDigits: formatDigits,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
 
-                        // Second Card (Couple Card) - Clickable
+                        // Couple Card
                         InkWell(
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const CoupleDetailsScreen(),
+                                builder:
+                                    (context) => const CoupleDetailsScreen(),
                               ),
                             );
                           },
                           borderRadius: BorderRadius.circular(20),
                           child: _buildCard(
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.asset(
                                   'assets/images/couple.png',
                                   height: 80,
                                 ),
-                                const SizedBox(width: 10),
+                                const SizedBox(width: 12),
                                 const Text(
                                   'kele;a iSÜgqj 2025',
                                   style: TextStyle(
                                     fontSize: 22,
-                                    color:Color(0xFFBB0404), 
+                                    color: Color(0xFFBB0404),
                                     fontFamily: 'TharuDigitalNikini',
                                   ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ],
                             ),
                           ),
                         ),
 
-                        // Third Card (Compass Card) - Clickable
+                        // Compass Card
                         InkWell(
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const CompassDetailsScreen(),
+                                builder:
+                                    (context) => const CompassDetailsScreen(),
                               ),
                             );
                           },
                           borderRadius: BorderRadius.circular(20),
                           child: _buildCard(
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.asset(
                                   'assets/images/compass.png',
                                   width: 40,
                                   height: 40,
                                 ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: Text(
-                                    'ÈYdj n,d .kak\'',
-                                    style: const TextStyle(
-                                      fontSize: 22,
-                                      color:Color(0xFFBB0404), 
-                                      fontFamily: 'TharuDigitalNikini',
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
+                                const SizedBox(width: 12),
+                                const Text(
+                                  'ÈYdj n,d .kak\'',
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    color: Color(0xFFBB0404),
+                                    fontFamily: 'TharuDigitalNikini',
                                   ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ],
                             ),
@@ -177,44 +169,49 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                         const SizedBox(height: 20),
 
-                        const Text(
-                          'iqn w¨;a wjqreoaola fõjd æ',
-                          style: TextStyle(
-                            fontSize: 24,
-                            color:Color(0xFFBB0404), 
-                            fontFamily: 'TharuDigitalNikini',
+                        const Center(
+                          child: Text(
+                            'iqn w¨;a wjqreoaola fõjd æ',
+                            style: TextStyle(
+                              fontSize: 24,
+                              color: Color(0xFFBB0404),
+                              fontFamily: 'TharuDigitalNikini',
+                            ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
 
                         const SizedBox(height: 20),
 
-                        Column(
-                          children: [
-                            Image.asset(
-                              'assets/images/nd_logo.png',
-                              height: 60,
-                            ),
-                            const Text(
-                              'Developed by:\nNadun Daluwatta',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color:Color(0xFFBB0404), 
+                        // Centered Developer Info
+                        Center(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/images/nd_logo.png',
+                                height: 60,
                               ),
-                            ),
-                            const Text(
-                              'nadundaluwatta26@gmail.com.',
-                              style: TextStyle(
-                                color:Color(0xFFBB0404), 
+                              const SizedBox(height: 10),
+                              const Text(
+                                'Developed by:\nNadun Daluwatta',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFFBB0404),
+                                ),
                               ),
-                            ),
-                            const Text(
-                              'www.nadundaluwatta.me',
-                              style: TextStyle(
-                                color:Color(0xFFBB0404), 
+                              const Text(
+                                'nadundaluwatta26@gmail.com',
+                                style: TextStyle(color: Color(0xFFBB0404)),
                               ),
-                            ),
-                          ],
+                              const Text(
+                                'www.nadundaluwatta.me',
+                                style: TextStyle(color: Color(0xFFBB0404)),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

@@ -58,10 +58,10 @@ class _TimerDisplayState extends State<TimerDisplay> {
         ),
         const SizedBox(height: 10),
         const Text(
-          'Èk   meh   úkdä   ;;amr',
+          '  Èk     meh    úkdä   ;;amr',
           style: TextStyle(
-            fontSize: 16,
-            fontFamily: 'apex008-FreeTypo',
+            fontSize: 14,
+            fontFamily: 'TharuDigitalNikini',
             color: Color(0xFFBB0404),
           ),
         ),
