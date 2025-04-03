@@ -8,7 +8,7 @@ class CompassDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        title: 'Compass Details',
+        title: 'ÈYdj n,d.kak',
       ),
       body: Container(
         decoration: const BoxDecoration(

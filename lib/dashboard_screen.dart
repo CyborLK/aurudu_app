@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/timer_display.dart';
 import '../screens/timer_details_screen.dart';
-import '../screens/couple_details_screen.dart';
+import 'screens/nakath_screen.dart';
 import '../screens/compass_details_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -103,7 +103,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               context,
                               MaterialPageRoute(
                                 builder:
-                                    (context) => const CoupleDetailsScreen(),
+                                    (context) => const NakathScreen(),
                               ),
                             );
                           },
