@@ -65,6 +65,17 @@ flutter:
     - assets/images/compass.png
     - assets/images/nd_logo.png
 
+    # nakath screen images
+
+    - assets/images/nakath1.png
+    - assets/images/nakath2.png
+    - assets/images/nakath3.png
+    - assets/images/nakath4.png
+    - assets/images/nakath5.png
+    - assets/images/nakath6.png
+    - assets/images/nakath7.png
+    - assets/images/nakath8.png
+
     - assets/audio/new_year_music.mp3
   fonts:
     - family: apex008-FreeTypo
@@ -78,6 +89,10 @@ flutter:
     - family: Gafata-Regular
       fonts:
         - asset: fonts/Gafata-Regular.ttf
+
+    - family: FM_ARJUN
+      fonts:
+        - asset: fonts/FM_ARJUN.ttf
 
         
 
