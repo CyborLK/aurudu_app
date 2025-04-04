@@ -4,6 +4,7 @@ import '../widgets/timer_display.dart';
 import '../screens/timer_details_screen.dart';
 import 'screens/nakath_screen.dart';
 import '../screens/compass_details_screen.dart';
+import '../data/nakath_data.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -13,7 +14,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-
   String formatDigits(int n) => n.toString().padLeft(2, '0');
 
   @override
@@ -70,18 +70,47 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  const Text(
-                                    'mqKH ld,h - wmrNd. 08\'57 g',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontFamily: 'TharuDigitalNikini',
-                                      color: Color(0xFFBB0404),
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
+                                  
                                   const SizedBox(height: 12),
-                                  TimerDisplay(
-                                    targetDateTime: DateTime(2025, 4, 13, 18, 0), // Replace with your actual event date
+                                  Builder(
+                                    builder: (context) {
+                                      final now = DateTime.now();
+                                      final nextNakath =
+                                          nakathEvents
+                                              .where(
+                                                (e) => e.dateTime.isAfter(now),
+                                              )
+                                              .toList()
+                                            ..sort(
+                                              (a, b) => a.dateTime.compareTo(
+                                                b.dateTime,
+                                              ),
+                                            );
+                                      final upcoming =
+                                          nextNakath.isNotEmpty
+                                              ? nextNakath.first
+                                              : null;
+
+                                      return Column(
+                                        children: [
+                                          Text(
+                                            upcoming?.title ??
+                                                'නව නකත් සිදුවීමක් නැත',
+                                            style: const TextStyle(
+                                              fontSize: 20,
+                                              fontFamily: 'TharuDigitalNikini',
+                                              color: Color(0xFFBB0404),
+                                            ),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          const SizedBox(height: 12),
+                                          if (upcoming != null)
+                                            TimerDisplay(
+                                              targetDateTime: upcoming.dateTime,
+                                            ),
+                                        ],
+                                      );
+                                    },
                                   ),
                                 ],
                               ),

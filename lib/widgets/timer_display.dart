@@ -64,7 +64,7 @@ class _TimerDisplayState extends State<TimerDisplay> {
         ),
         const SizedBox(height: 10),
         const Text(
-          'Èk     meh     úkdä     ;;amr',
+          '    Èk      meh    úkdä   ;;amr',
           style: TextStyle(
             fontSize: 14,
             fontFamily: 'TharuDigitalNikini',
