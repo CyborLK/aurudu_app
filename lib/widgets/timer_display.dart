@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 class TimerDisplay extends StatefulWidget {
-  final Duration initialTimeLeft;
-  final String Function(int) formatDigits;
+  final DateTime targetDateTime;
 
   const TimerDisplay({
     super.key,
-    required this.initialTimeLeft,
-    required this.formatDigits,
+    required this.targetDateTime,
   });
 
   @override
@@ -19,31 +17,39 @@ class _TimerDisplayState extends State<TimerDisplay> {
   late Duration _timeLeft;
   late Timer _timer;
 
+  String formatDigits(int n) => n.toString().padLeft(2, '0');
+
   @override
   void initState() {
     super.initState();
-    _timeLeft = widget.initialTimeLeft;
+    _updateTimeLeft();
 
-    // Start the timer to update every second
     _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-      setState(() {
-        _timeLeft -= const Duration(seconds: 1);
-      });
+      _updateTimeLeft();
+    });
+  }
+
+  void _updateTimeLeft() {
+    final now = DateTime.now();
+    final diff = widget.targetDateTime.difference(now);
+
+    setState(() {
+      _timeLeft = diff.isNegative ? Duration.zero : diff;
     });
   }
 
   @override
   void dispose() {
-    _timer.cancel(); // Cancel the timer when the widget is disposed
+    _timer.cancel();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final days = widget.formatDigits(_timeLeft.inDays);
-    final hours = widget.formatDigits(_timeLeft.inHours % 24);
-    final minutes = widget.formatDigits(_timeLeft.inMinutes % 60);
-    final seconds = widget.formatDigits(_timeLeft.inSeconds % 60);
+    final days = formatDigits(_timeLeft.inDays);
+    final hours = formatDigits(_timeLeft.inHours % 24);
+    final minutes = formatDigits(_timeLeft.inMinutes % 60);
+    final seconds = formatDigits(_timeLeft.inSeconds % 60);
 
     return Column(
       children: [
@@ -58,7 +64,7 @@ class _TimerDisplayState extends State<TimerDisplay> {
         ),
         const SizedBox(height: 10),
         const Text(
-          '  Èk     meh    úkdä   ;;amr',
+          'Èk     meh     úkdä     ;;amr',
           style: TextStyle(
             fontSize: 14,
             fontFamily: 'TharuDigitalNikini',

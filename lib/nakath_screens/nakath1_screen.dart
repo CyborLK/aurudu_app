@@ -11,12 +11,6 @@ class Nakath1Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Duration initialCountdown = const Duration(
-      days: 27,
-      hours: 14,
-      minutes: 9,
-      seconds: 59,
-    );
 
     return Scaffold(
       appBar: const CustomAppBar(title: 'kele;a iSÜgqj 2025'),
@@ -47,8 +41,7 @@ class Nakath1Screen extends StatelessWidget {
 
                 // ⏳ Countdown Timer
                 TimerDisplay(
-                  initialTimeLeft: initialCountdown,
-                  formatDigits: formatDigits,
+                  targetDateTime: DateTime(2025, 3, 30, 18, 0), // March 30, 2025 at 6:00 PM
                 ),
 
                 const SizedBox(height: 20),

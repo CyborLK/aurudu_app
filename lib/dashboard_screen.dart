@@ -13,12 +13,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  final Duration _timeLeft = const Duration(
-    days: 27,
-    hours: 14,
-    minutes: 9,
-    seconds: 59,
-  );
 
   String formatDigits(int n) => n.toString().padLeft(2, '0');
 
@@ -87,8 +81,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   ),
                                   const SizedBox(height: 12),
                                   TimerDisplay(
-                                    initialTimeLeft: _timeLeft,
-                                    formatDigits: formatDigits,
+                                    targetDateTime: DateTime(2025, 4, 13, 18, 0), // Replace with your actual event date
                                   ),
                                 ],
                               ),
@@ -102,8 +95,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder:
-                                    (context) => const NakathScreen(),
+                                builder: (context) => const NakathScreen(),
                               ),
                             );
                           },

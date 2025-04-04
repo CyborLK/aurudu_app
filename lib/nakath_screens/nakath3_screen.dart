@@ -4,7 +4,7 @@ import '../../widgets/timer_display.dart';
 import '../../widgets/rounded_red_button.dart';
 import '../../widgets/rounded_white_button.dart';
 import '../nakath_screens/nakath2_screen.dart';
-//import '../nakath_screens/nakath3_screen.dart';
+import '../nakath_screens/nakath4_screen.dart';
 
 class Nakath3Screen extends StatelessWidget {
   const Nakath3Screen({super.key});
@@ -13,12 +13,6 @@ class Nakath3Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Duration initialCountdown = const Duration(
-      days: 27,
-      hours: 14,
-      minutes: 9,
-      seconds: 59,
-    );
 
     return Scaffold(
       appBar: const CustomAppBar(title: 'kele;a iSÜgqj 2025'),
@@ -38,7 +32,7 @@ class Nakath3Screen extends StatelessWidget {
               const SizedBox(height: 12),
 
               const Text(
-                'පරණ අවුරුද්ද අවසන් වීම',
+                'w¨;a wjqreÿ Wodj',
                 style: TextStyle(
                   fontSize: 26,
                   fontFamily: 'TharuDigitalNikini',
@@ -49,20 +43,19 @@ class Nakath3Screen extends StatelessWidget {
               const SizedBox(height: 16),
 
               TimerDisplay(
-                initialTimeLeft: initialCountdown,
-                formatDigits: formatDigits,
+                targetDateTime: DateTime(2025, 4, 14, 03, 21), // Apr 14, 2025 at 3:21 AM
               ),
 
               const SizedBox(height: 20),
 
               const Text(
-                'අප්‍රේල් 13 වන දින සවස 6ට පසුව පරණ අවුරුද්ද නිමවෙයි. '
-                'මේ මොහොතේ සිට අවුරුද්ද අවසන් වූවේ ය.',
+                'wfm%a,a ui 14 jk i÷od Èk mQ¾jNd. 03\'21g isxy, fou< w¿;a wjqreoao Wodfõ\'',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 18,
-                  fontFamily: 'TharuDigitalNikini',
+                  fontFamily: 'FM_ARJUN',
                   color: Colors.black87,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
 
@@ -80,11 +73,10 @@ class Nakath3Screen extends StatelessWidget {
               const SizedBox(height: 20),
 
               const Text(
-                'මේ මොහොත සන්සුන්ව පිළිගැනීම අරමුණු කරමින් '
-                'ධර්ම සවන් අදින්නට, පුණ්‍ය කර්ම සිදු කරන්නට සුදුසු වේ.',
+                'ie\'hq( by; ish¿ kele;a fõ,djka ms<sfh, lr we;af;a › ,xld iïu; Trf,daiq fõ,djg wkqj ixialD;sl lghq;= fomd¾;fïka;=fõ isxy, w¿;a wjqreÿ kele;a lñgqj úisks\'',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 12,
                   fontFamily: 'TharuDigitalNikini',
                   color: Color(0xFFBB0404),
                 ),
@@ -92,7 +84,7 @@ class Nakath3Screen extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              // 🔘 White and 🔴 Red buttons side by side
+              // White and Red buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -112,7 +104,9 @@ class Nakath3Screen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Nakath3Screen(), //change this to the next screen
+                          builder:
+                              (context) =>
+                                  const Nakath4Screen(), //change this to the next screen
                         ),
                       );
                     },

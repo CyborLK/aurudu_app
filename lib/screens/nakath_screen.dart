@@ -33,32 +33,32 @@ class NakathScreen extends StatelessWidget {
       {
         'title': 'mqKH ld,h',
         'image': 'assets/images/nakath4.png',
-        //'screen': const Nakath4Screen(),
+        'screen': const Nakath4Screen(),
       },
       {
         'title': 'wdydr msiSu',
         'image': 'assets/images/nakath5.png',
-        //'screen': const Nakath5Screen(),
+        'screen': const Nakath5Screen(),
       },
       {
         'title': 'jev we,a,Su" .kqfokq lsÍu yd wdydr wkqNjh',
         'image': 'assets/images/nakath6.png',
-        //'screen': const Nakath6Screen(),
+        'screen': const Nakath6Screen(),
       },
       {
         'title': 'ysi f;,a .Eu',
         'image': 'assets/images/nakath7.png',
-        //'screen': const Nakath7Screen(),
+        'screen': const Nakath7Screen(),
       },
       {
         'title': '/lSrlaId i|yd msg;aùu',
         'image': 'assets/images/nakath8.png',
-        //'screen': const Nakath8Screen(),
+        'screen': const Nakath8Screen(),
       },
     ];
 
     return Scaffold(
-      appBar: const CustomAppBar(title: 'කෙළි මොහොත 2025'),
+      appBar: const CustomAppBar(title: 'kele;a iSÜgqj 2025'),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
