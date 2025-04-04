@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/custom_app_bar.dart';
 import '../../widgets/timer_display.dart';
 import '../../widgets/rounded_red_button.dart';
+import '../nakath_screens/nakath2_screen.dart';
 
 class Nakath1Screen extends StatelessWidget {
   const Nakath1Screen({super.key});
@@ -92,7 +93,12 @@ class Nakath1Screen extends StatelessWidget {
                 // ❤️ Custom Rounded Red Button
                 RoundedRedButton(
                   onPressed: () {
-                    // TODO: handle action
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Nakath2Screen(),
+                      ),
+                    );
                   },
                 ),
               ],

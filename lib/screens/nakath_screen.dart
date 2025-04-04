@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import '../widgets/custom_app_bar.dart';
 import '../nakath_screens/nakath1_screen.dart';
-/*import '../nakath_screens/nakath2_screen.dart';
+import '../nakath_screens/nakath2_screen.dart';
 import '../nakath_screens/nakath3_screen.dart';
 import '../nakath_screens/nakath4_screen.dart';
 import '../nakath_screens/nakath5_screen.dart';
 import '../nakath_screens/nakath6_screen.dart';
 import '../nakath_screens/nakath7_screen.dart';
-import '../nakath_screens/nakath8_screen.dart';*/
+import '../nakath_screens/nakath8_screen.dart';
 
 class NakathScreen extends StatelessWidget {
   const NakathScreen({super.key});
@@ -23,37 +23,37 @@ class NakathScreen extends StatelessWidget {
       {
         'title': 'mrK wjqreoao i|yd iakdkh',
         'image': 'assets/images/nakath2.png',
-        //'screen': const Nakath2Screen(),
+        'screen': const Nakath2Screen(),
       },
       {
         'title': 'w¨;a wjqreÿ Wodj',
         'image': 'assets/images/nakath3.png',
-        //'screen': const Nakath3Screen(),
+        'screen': const Nakath3Screen(),
       },
       {
         'title': 'mqKH ld,h',
         'image': 'assets/images/nakath4.png',
-        //'screen': const Nakath4Screen(),
+        'screen': const Nakath4Screen(),
       },
       {
         'title': 'wdydr msiSu',
         'image': 'assets/images/nakath5.png',
-        //'screen': const Nakath5Screen(),
+        'screen': const Nakath5Screen(),
       },
       {
         'title': 'jev we,a,Su" .kqfokq lsÍu yd wdydr wkqNjh',
         'image': 'assets/images/nakath6.png',
-        //'screen': const Nakath6Screen(),
+        'screen': const Nakath6Screen(),
       },
       {
         'title': 'ysi f;,a .Eu',
         'image': 'assets/images/nakath7.png',
-        //'screen': const Nakath7Screen(),
+        'screen': const Nakath7Screen(),
       },
       {
         'title': '/lSrlaId i|yd msg;aùu',
         'image': 'assets/images/nakath8.png',
-        //'screen': const Nakath8Screen(),
+        'screen': const Nakath8Screen(),
       },
     ];
 
