@@ -21,7 +21,7 @@ class Nakath2Screen extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: const CustomAppBar(title: 'පරණ අවුරුද්ද අවසන් වීම'),
+      appBar: const CustomAppBar(title: 'kele;a iSÜgqj 2025'),
       body: Container(
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(

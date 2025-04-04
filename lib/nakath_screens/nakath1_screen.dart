@@ -19,7 +19,7 @@ class Nakath1Screen extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: const CustomAppBar(title: 'නව පදවැලීම'),
+      appBar: const CustomAppBar(title: 'kele;a iSÜgqj 2025'),
       body: Container(
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
@@ -36,7 +36,7 @@ class Nakath1Screen extends StatelessWidget {
               children: [
                 const SizedBox(height: 12),
                 const Text(
-                  'නව පදවැලීම',
+                  'kj i| ne,Su',
                   style: TextStyle(
                     fontSize: 26,
                     fontFamily: 'TharuDigitalNikini',
@@ -54,13 +54,13 @@ class Nakath1Screen extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 const Text(
-                  'අලුත් අවුරුදු පදවැලීම පැවැත්වෙන්නේ අප්‍රේල් 13 වන දින සවස 6.00 ටයි. '
-                  'අදිනි නව පදවැලීමේ මොහොත වේ.',
+                  'wNskj pkaø j¾Ih i|yd ud¾;= ui 30 jk bßod Èk o wNskj iQ¾h j¾Ih i|yd uehs ui 1 jk n%yiam;skaod  Èk o" kj i| ne,Su uekú\'',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
-                    fontFamily: 'TharuDigitalNikini',
+                    fontFamily: 'FM_ARJUN',
                     color: Colors.black87,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
 
@@ -78,11 +78,10 @@ class Nakath1Screen extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 const Text(
-                  'මෙම මොහොත සියලු අලුත්කම් ආරම්භ කිරීමට අඳින්නට සුදුසුය. '
-                  'මේ මොහොතේ වාසනාවන්ත කටයුතු ආරම්භ කිරීමට උපරිම වාසියක් ඇත.',
+                  'ie\'hq( by; ish¿ kele;a fõ,djka ms<sfh, lr we;af;a › ,xld iïu; Trf,daiq fõ,djg wkqj ixialD;sl lghq;= fomd¾;fïka;=fõ isxy, w¿;a wjqreÿ kele;a lñgqj úisks\'',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 12,
                     fontFamily: 'TharuDigitalNikini',
                     color: Color(0xFFBB0404),
                   ),
@@ -90,7 +89,7 @@ class Nakath1Screen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // ❤️ Custom Rounded Red Button
+                // Custom Rounded Red Button
                 RoundedRedButton(
                   onPressed: () {
                     Navigator.push(
