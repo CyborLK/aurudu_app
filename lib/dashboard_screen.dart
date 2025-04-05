@@ -1,10 +1,43 @@
 import 'package:flutter/material.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/timer_display.dart';
-import '../screens/timer_details_screen.dart';
-import 'screens/nakath_screen.dart';
-import '../screens/compass_details_screen.dart';
 import '../data/nakath_data.dart';
+import '../screens/compass_details_screen.dart';
+import '../screens/nakath_screen.dart';
+
+// Import all Nakath screens
+import '../nakath_screens/nakath1_screen.dart';
+import '../nakath_screens/nakath2_screen.dart';
+import '../nakath_screens/nakath3_screen.dart';
+import '../nakath_screens/nakath4_screen.dart';
+import '../nakath_screens/nakath5_screen.dart';
+import '../nakath_screens/nakath6_screen.dart';
+import '../nakath_screens/nakath7_screen.dart';
+import '../nakath_screens/nakath8_screen.dart';
+
+// Helper function to get screen by title
+Widget? getNakathScreenByTitle(String title) {
+  switch (title) {
+    case 'kj i| ne,Su':
+      return const Nakath1Screen();
+    case 'mrK wjqreoao i|yd iakdkh':
+      return const Nakath2Screen();
+    case 'w¨;a wjqreÿ Wodj':
+      return const Nakath3Screen();
+    case 'mqKH ld,h':
+      return const Nakath4Screen();
+    case 'wdydr msiSu':
+      return const Nakath5Screen();
+    case 'jev we,a,Su" .kqfokq lsÍu d wdydr wkqNjh':
+      return const Nakath6Screen();
+    case 'ysi f;,a .Eu':
+      return const Nakath7Screen();
+    case '/lSrlaId i|yd msg;aùu':
+      return const Nakath8Screen();
+    default:
+      return null;
+  }
+}
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -54,13 +87,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         // Timer Card
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder:
-                                    (context) => const TimerDetailsScreen(),
-                              ),
-                            );
+                            final now = DateTime.now();
+                            final nextNakath = nakathEvents
+                                .where((e) => e.dateTime.isAfter(now))
+                                .toList()
+                              ..sort((a, b) => a.dateTime.compareTo(b.dateTime));
+                            final upcoming = nextNakath.isNotEmpty ? nextNakath.first : null;
+
+                            final screen = upcoming != null ? getNakathScreenByTitle(upcoming.title) : null;
+
+                            if (screen != null) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => screen),
+                              );
+                            }
                           },
                           borderRadius: BorderRadius.circular(20),
                           child: _buildCard(
@@ -70,32 +111,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  
                                   const SizedBox(height: 12),
                                   Builder(
                                     builder: (context) {
                                       final now = DateTime.now();
-                                      final nextNakath =
-                                          nakathEvents
-                                              .where(
-                                                (e) => e.dateTime.isAfter(now),
-                                              )
-                                              .toList()
-                                            ..sort(
-                                              (a, b) => a.dateTime.compareTo(
-                                                b.dateTime,
-                                              ),
-                                            );
-                                      final upcoming =
-                                          nextNakath.isNotEmpty
-                                              ? nextNakath.first
-                                              : null;
+                                      final nextNakath = nakathEvents
+                                          .where((e) => e.dateTime.isAfter(now))
+                                          .toList()
+                                        ..sort((a, b) => a.dateTime.compareTo(b.dateTime));
+                                      final upcoming = nextNakath.isNotEmpty ? nextNakath.first : null;
 
                                       return Column(
                                         children: [
                                           Text(
-                                            upcoming?.title ??
-                                                'නව නකත් සිදුවීමක් නැත',
+                                            upcoming?.title ?? 'නව නකත් සිදුවීමක් නැත',
                                             style: const TextStyle(
                                               fontSize: 20,
                                               fontFamily: 'TharuDigitalNikini',
@@ -158,8 +187,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder:
-                                    (context) => const CompassDetailsScreen(),
+                                builder: (context) => const CompassDetailsScreen(),
                               ),
                             );
                           },
@@ -204,7 +232,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                         const SizedBox(height: 20),
 
-                        // Centered Developer Info
                         Center(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,

@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: const Color(0xFFBB0404),
       elevation: 0,
       centerTitle: true,
-      iconTheme: const IconThemeData( // <-- This line changes the back button color
+      iconTheme: const IconThemeData( 
         color: Colors.white,
       ),
       title: Text(

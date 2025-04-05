@@ -45,7 +45,7 @@ class _TimerDisplayState extends State<TimerDisplay> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContexcontext) {
     final days = formatDigits(_timeLeft.inDays);
     final hours = formatDigits(_timeLeft.inHours % 24);
     final minutes = formatDigits(_timeLeft.inMinutes % 60);
