@@ -4,6 +4,7 @@ import '../widgets/timer_display.dart';
 import '../data/nakath_data.dart';
 import '../screens/compass_details_screen.dart';
 import '../screens/nakath_screen.dart';
+import '../screens/about_us_screen.dart';
 
 // Import all Nakath screens
 import '../nakath_screens/nakath1_screen.dart';
@@ -204,6 +205,41 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 const SizedBox(width: 12),
                                 const Text(
                                   'ÈYdj n,d .kak\'',
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    color: Color(0xFFBB0404),
+                                    fontFamily: 'TharuDigitalNikini',
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        // Aurudu geetha Card
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const AboutUsScreen(),
+                              ),
+                            );
+                          },
+                          borderRadius: BorderRadius.circular(20),
+                          child: _buildCard(
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/images/idea.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                                const SizedBox(width: 12),
+                                const Text(
+                                  'woyia yd fhdackd',
                                   style: TextStyle(
                                     fontSize: 22,
                                     color: Color(0xFFBB0404),

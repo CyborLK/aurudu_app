@@ -93,7 +93,7 @@ class _CompassDetailsScreenState extends State<CompassDetailsScreen> {
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withOpacity(0.5),
+                                    color: Colors.black.withAlpha((0.5 * 255).toInt()),
                                     blurRadius: 10,
                                     spreadRadius: 2,
                                   ),

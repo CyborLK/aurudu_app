@@ -111,7 +111,7 @@ class NakathScreen extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFFFAE3C3).withOpacity(0.9),
+        color: const Color(0xFFFAE3C3).withAlpha((0.9 * 255).toInt()),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: const Color(0xFFBB0404), width: 2),
         boxShadow: const [
