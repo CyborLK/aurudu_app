@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'dashboard_screen.dart'; // Import the dashboard screen
+import 'dashboard_screen.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -57,45 +58,13 @@ class SplashScreenState extends State<SplashScreen> {
                   fontFamily: 'TharuDigitalNikini',
                 ),
               ),
+              const SizedBox(height: 40),
+              // Loading Animation
+              LoadingAnimationWidget.staggeredDotsWave(
+                color: Color(0xFFBB0404),
+                size: 50,
+              ),
             ],
-          ),
-          // Dots at the bottom
-          Positioned(
-            bottom: 30,
-            left: 0,
-            right: 0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 10,
-                  height: 10,
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                  ),
-                ),
-                Container(
-                  width: 10,
-                  height: 10,
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.red,
-                  ),
-                ),
-                Container(
-                  width: 10,
-                  height: 10,
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
           ),
         ],
       ),
