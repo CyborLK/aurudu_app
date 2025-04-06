@@ -81,9 +81,6 @@ flutter:
     - assets/images/nakath8.png
 
   fonts:
-    - family: apex008-FreeTypo
-      fonts:
-        - asset: fonts/apex008-FreeTypo.ttf
     
     - family: TharuDigitalNikini
       fonts:

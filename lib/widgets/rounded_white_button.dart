@@ -27,7 +27,7 @@ class RoundedWhiteButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       child: const Text(
-        'l,ska kel;', // Fixed label
+        'fmr kel;', // Fixed label
         style: TextStyle(
           fontSize: 18,
           fontFamily: 'TharuDigitalNikini',

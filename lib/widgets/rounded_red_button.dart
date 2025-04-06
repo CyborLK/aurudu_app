@@ -23,7 +23,7 @@ class RoundedRedButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       child: const Text(
-        'B,Õ kel;', // Built-in label
+        'ó,Õ kel;', // Built-in label
         style: TextStyle(
           fontSize: 18,
           fontFamily: 'TharuDigitalNikini',

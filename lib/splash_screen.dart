@@ -53,7 +53,7 @@ class SplashScreenState extends State<SplashScreen> {
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: Colors.red,
+                  color: Color(0xFFBB0404),
                   fontFamily: 'TharuDigitalNikini',
                 ),
               ),

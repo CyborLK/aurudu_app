@@ -49,7 +49,7 @@ class Nakath5Screen extends StatelessWidget {
               const SizedBox(height: 20),
 
               const Text(
-                'wfm%a,a ui 14 jk i÷od mQ¾jNd. 04\'04g ;U j¾K jia;%dNrKfhka ieriS ol=Kq ÈYdj n,d ,sma ne| .sks fud<jd lsß n;la o leú,s j¾.hla o § lsß iy ú,| o ms<sfh, lr.ekSu uekú\'',
+                'wfm%a,a ui 14 jk i÷od mQ¾jNd. 04\'04g ;U j¾K \njia;%dNrKfhka ieriS ol=Kq ÈYdj n,d ,sma ne| .sks fud<jd lsß n;la o leú,s j¾.hla o § lsß iy ú,| o ms<sfh, lr.ekSu uekú\'',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 18,
