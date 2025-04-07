@@ -352,7 +352,7 @@ class _CompassDetailsScreenState extends State<CompassDetailsScreen> {
                       ),
                       const SizedBox(height: 20),
                       const Text(
-                        ';sria ;,hl ÿrl;kh ;nd ÈYdj n,kak\'',
+                        ';sria ;,hl ÿrl;kh ;nd ÈYdj n,kak\'lerflk oKafâ r;a meye B ;, ysi W;=re ÈYdjg yrjd ÈYdjka n,d.kak\'\n^fuh ish¨ ÿrl;k i|yd l%shd fkdlrk nj i,lkak\'&',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
