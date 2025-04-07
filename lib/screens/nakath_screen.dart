@@ -81,18 +81,19 @@ class NakathScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               child: _buildCard(
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(item['image'], height: 75),
+                    Image.asset(item['image'], height: 60, width: 60),
                     const SizedBox(width: 12),
-                    Flexible(
-                      child: Text(
-                        item['title'],
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          color: Color(0xFFBB0404),
-                          fontFamily: 'TharuDigitalNikini',
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          item['title'],
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            color: Color(0xFFBB0404),
+                            fontFamily: 'TharuDigitalNikini',
+                          ),
                         ),
                       ),
                     ),
