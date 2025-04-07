@@ -5,6 +5,7 @@ import '../data/nakath_data.dart';
 import '../screens/compass_details_screen.dart';
 import '../screens/nakath_screen.dart';
 import '../screens/about_us_screen.dart';
+import '../screens/aurudu_geetha_screen.dart';
 
 // Import all Nakath screens
 import '../nakath_screens/nakath1_screen.dart';
@@ -124,15 +125,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                                       return Column(
                                         children: [
-                                          Text(
-                                            upcoming?.title ?? 'නව නකත් සිදුවීමක් නැත',
-                                            style: const TextStyle(
-                                              fontSize: 20,
-                                              fontFamily: 'TharuDigitalNikini',
-                                              color: Color(0xFFBB0404),
-                                            ),
-                                            textAlign: TextAlign.center,
-                                          ),
+                                          
                                           const SizedBox(height: 12),
                                           if (upcoming != null)
                                             TimerDisplay(
@@ -217,7 +210,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                         ),
 
-                        // Aurudu geetha Card
+                        // Aururdu Geetha Card
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const AuruduGeethaScreen(),
+                              ),
+                            );
+                          },
+                          borderRadius: BorderRadius.circular(20),
+                          child: _buildCard(
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/images/music.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                                const SizedBox(width: 12),
+                                const Text(
+                                  'wjqreÿ .S;',
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    color: Color(0xFFBB0404),
+                                    fontFamily: 'TharuDigitalNikini',
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        // reviews screen
                         InkWell(
                           onTap: () {
                             Navigator.push(

@@ -6,10 +6,12 @@ class BackgroundAudioController {
 
   final AudioPlayer _player = AudioPlayer();
   bool _isPlaying = false;
+  bool _isManuallyMuted = false; // ✅ New flag
 
   BackgroundAudioController._internal();
 
   bool get isPlaying => _isPlaying;
+  bool get isMuted => _isManuallyMuted;
 
   Future<void> init() async {
     await _player.setReleaseMode(ReleaseMode.loop);
@@ -18,8 +20,10 @@ class BackgroundAudioController {
   }
 
   void play() {
-    _player.resume();
-    _isPlaying = true;
+    if (!_isManuallyMuted) {
+      _player.resume();
+      _isPlaying = true;
+    }
   }
 
   void pause() {
@@ -28,6 +32,24 @@ class BackgroundAudioController {
   }
 
   void toggle() {
-    _isPlaying ? pause() : play();
+    if (_isPlaying) {
+      pause();
+      _isManuallyMuted = true;
+    } else {
+      _isManuallyMuted = false;
+      play();
+    }
+  }
+
+  void forcePause() {
+    _player.pause();
+    _isPlaying = false;
+  }
+
+  void autoResume() {
+    if (!_isManuallyMuted) {
+      play();
+    }
   }
 }
+
