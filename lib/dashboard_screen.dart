@@ -125,7 +125,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                                       return Column(
                                         children: [
-                                          
+                                          Text(
+                                             upcoming?.title ?? 'නව නකත් සිදුවීමක් නැත',
+                                             style: const TextStyle(
+                                               fontSize: 20,
+                                               fontFamily: 'TharuDigitalNikini',
+                                               color: Color(0xFFBB0404),
+                                             ),
+                                             textAlign: TextAlign.center,
+                                           ),
                                           const SizedBox(height: 12),
                                           if (upcoming != null)
                                             TimerDisplay(
