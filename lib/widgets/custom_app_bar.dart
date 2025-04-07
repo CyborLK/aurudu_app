@@ -1,33 +1,51 @@
 import 'package:flutter/material.dart';
+import '../audio/background_audio_controller.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
 
-  const CustomAppBar({
-    super.key,
-    required this.title,
-  });
+  const CustomAppBar({super.key, required this.title});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
+  bool isPlaying = BackgroundAudioController().isPlaying;
+
+  void _toggleAudio() {
+    BackgroundAudioController().toggle();
+    setState(() {
+      isPlaying = !isPlaying;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: const Color(0xFFBB0404),
+      backgroundColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
-      iconTheme: const IconThemeData( 
-        color: Colors.white,
-      ),
       title: Text(
-        title,
+        widget.title,
         style: const TextStyle(
-          fontSize: 24,
           fontFamily: 'TharuDigitalNikini',
-          color: Colors.white,
+          fontSize: 22,
+          color: Color(0xFFBB0404),
         ),
       ),
+      actions: [
+        IconButton(
+          icon: Icon(
+            isPlaying ? Icons.volume_up : Icons.volume_off,
+            color: const Color(0xFFBB0404),
+          ),
+          onPressed: _toggleAudio,
+        ),
+      ],
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

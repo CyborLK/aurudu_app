@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'splash_screen.dart';
+import '../audio/background_audio_controller.dart';
 
-void main() {
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await BackgroundAudioController().init();
   runApp(const MyApp());
 }
 
