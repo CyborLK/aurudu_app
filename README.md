@@ -50,6 +50,8 @@ Follow these steps to clone and run the project locally:
 git clone https://github.com/CyborLK/aurudu_app.git
 cd aurudu_app
 
+````
+
 ## 🧑🏻‍💻 Developed By
 
 **Nadun Daluwatta**  
